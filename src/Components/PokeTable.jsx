@@ -50,7 +50,14 @@ class PokeTable extends Component {
         noDamageTo: [],
         //Evolution States
         speciesChain: null,
-        evolutionChain: []
+        evolutionChain: [],
+        //Stats States
+        hpResult: 0,
+        attackResult: 0,
+        defResult: 0,
+        speedResult: 0,
+        spattackResult: 0,
+        spdefResult: 0
     }
 
 /*
@@ -112,10 +119,25 @@ class PokeTable extends Component {
                 borderStyle: {borderColor: 'purple'},
                 colorStyle: {color: 'purple'}
             })
-        } else if(typeColor === 'ground' || typeColor === 'rock') {
+        } else if(typeColor === 'ground' || typeColor === 'rock' || typeColor === 'fighting') {
             this.setState({
                 borderStyle: {borderColor: 'brown'},
                 colorStyle: {color: 'brown'}
+            })
+        } else if(typeColor === 'bug') {
+            this.setState({
+                borderStyle: {borderColor: 'lightgreen'},
+                colorStyle: {color: 'lightgreen'}
+            })
+        } else if(typeColor === 'psychic' || typeColor === 'ghost') {
+            this.setState({
+                borderStyle: {borderColor: 'purple'},
+                colorStyle: {color: 'purple'}
+            })
+        } else if(typeColor === 'dark') {
+            this.setState({
+                borderStyle: {borderColor: 'darkred'},
+                colorStyle: {color: 'darkred'}
             })
         }else {
             this.setState({
@@ -148,7 +170,13 @@ class PokeTable extends Component {
                     picResult: d.sprites.front_default,
                     prevPic: d.sprites.front_default,
                     abilityResult: d.abilities,
-                    typeResult: d.types
+                    typeResult: d.types,
+                    speedResult: d.stats[0].base_stat,
+                    spdefResult: d.stats[1].base_stat,
+                    spattackResult: d.stats[2].base_stat,
+                    defResult: d.stats[3].base_stat,
+                    attackResult: d.stats[4].base_stat,
+                    hpResult: d.stats[5].base_stat
                 })
             })
             //Set Style Colors depending on Result Type
@@ -198,10 +226,25 @@ class PokeTable extends Component {
                         borderStyle: {borderColor: 'purple'},
                         colorStyle: {color: 'purple'}
                     })
-                } else if(typeColor === 'ground' || typeColor === 'rock') {
+                } else if(typeColor === 'ground' || typeColor === 'rock' || typeColor === 'fighting') {
                     this.setState({
                         borderStyle: {borderColor: 'brown'},
                         colorStyle: {color: 'brown'}
+                    })
+                } else if(typeColor === 'bug') {
+                    this.setState({
+                        borderStyle: {borderColor: 'lightgreen'},
+                        colorStyle: {color: 'lightgreen'}
+                    })
+                } else if(typeColor === 'psychic' || typeColor === 'ghost') {
+                    this.setState({
+                        borderStyle: {borderColor: 'purple'},
+                        colorStyle: {color: 'purple'}
+                    })
+                } else if(typeColor === 'dark') {
+                    this.setState({
+                        borderStyle: {borderColor: 'darkred'},
+                        colorStyle: {color: 'darkred'}
                     })
                 }else {
                     this.setState({
@@ -283,10 +326,25 @@ class PokeTable extends Component {
                         borderStyle: {borderColor: 'purple'},
                         colorStyle: {color: 'purple'}
                     })
-                } else if(typeColor === 'ground' || typeColor === 'rock') {
+                } else if(typeColor === 'ground' || typeColor === 'rock' || typeColor === 'fighting') {
                     this.setState({
                         borderStyle: {borderColor: 'brown'},
                         colorStyle: {color: 'brown'}
+                    })
+                } else if(typeColor === 'bug') {
+                    this.setState({
+                        borderStyle: {borderColor: 'lightgreen'},
+                        colorStyle: {color: 'lightgreen'}
+                    })
+                } else if(typeColor === 'psychic' || typeColor === 'ghost') {
+                    this.setState({
+                        borderStyle: {borderColor: 'purple'},
+                        colorStyle: {color: 'purple'}
+                    })
+                } else if(typeColor === 'dark') {
+                    this.setState({
+                        borderStyle: {borderColor: 'darkred'},
+                        colorStyle: {color: 'darkred'}
                     })
                 }else {
                     this.setState({
@@ -380,10 +438,25 @@ class PokeTable extends Component {
                     borderStyle: {borderColor: 'purple'},
                     colorStyle: {color: 'purple'}
                 })
-            } else if(typeColor === 'ground' || typeColor === 'rock') {
+            } else if(typeColor === 'ground' || typeColor === 'rock' || typeColor === 'fighting') {
                 this.setState({
                     borderStyle: {borderColor: 'brown'},
                     colorStyle: {color: 'brown'}
+                })
+            } else if(typeColor === 'bug') {
+                this.setState({
+                    borderStyle: {borderColor: 'lightgreen'},
+                    colorStyle: {color: 'lightgreen'}
+                })
+            } else if(typeColor === 'psychic' || typeColor === 'ghost') {
+                this.setState({
+                    borderStyle: {borderColor: 'purple'},
+                    colorStyle: {color: 'purple'}
+                })
+            } else if(typeColor === 'dark') {
+                this.setState({
+                    borderStyle: {borderColor: 'darkred'},
+                    colorStyle: {color: 'darkred'}
                 })
             }else {
                 this.setState({
@@ -474,6 +547,33 @@ class PokeTable extends Component {
                 </table>
 
                 </div>
+
+                <table>
+                    <tr>
+                        <th style={this.state.borderStyle}>HP</th>
+                        <td style={this.state.borderStyle}>{this.state.hpResult}</td>
+                    </tr>
+                    <tr>
+                        <th style={this.state.borderStyle}>Attack</th>
+                        <td style={this.state.borderStyle}>{this.state.attackResult}</td>
+                    </tr>
+                    <tr>
+                        <th style={this.state.borderStyle}>Defense</th>
+                        <td style={this.state.borderStyle}>{this.state.defResult}</td>
+                    </tr>
+                    <tr>
+                        <th style={this.state.borderStyle}>Sp. Attack</th>
+                        <td style={this.state.borderStyle}>{this.state.spattackResult}</td>
+                    </tr>
+                    <tr>
+                        <th style={this.state.borderStyle}>Sp. Defense</th>
+                        <td style={this.state.borderStyle}>{this.state.spdefResult}</td>
+                    </tr>
+                    <tr>
+                        <th style={this.state.borderStyle}>Speed</th>
+                        <td style={this.state.borderStyle}>{this.state.speedResult}</td>
+                    </tr>
+                </table>
                 <h2>Moves:</h2>
 
                 <table id="moveTable">
