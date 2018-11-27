@@ -47,6 +47,13 @@ input {
   font-size: 15px;
 }
 
+.imeji {
+  margin: auto;
+  border: solid;
+  border-color: black;
+  border-radius: 30px;
+}
+
 p {
   padding: 30px;
   color: white;
@@ -59,21 +66,12 @@ table {
   margin: auto;
 }
 
-td {
+td, th {
   border: solid;
   border-width: 1px;
-  border-color: red;
+  border-color: white;
 }
 
-#abilityTable {
-  float: left;
-  margin-left: 300px;
-}
-
-#typeTable {
-  float: right;
-  margin-right: 300px;
-}
 
 .tableDiv {
   align-items: center;
